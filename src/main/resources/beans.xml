@@ -1,0 +1,25 @@
+<!-- Spring-Common.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="the_generator" 
+	      class="de.hhu.stups.springhello.pojos.SequenceGenerator">
+		<constructor-arg  ref="SequenceNumberGenerator" /> 
+		
+
+		<!-- Snippets: 
+		<constructor-arg  ref="SequenceNumberGenerator" /> 
+		<constructor-arg  ref="create_random_numbers" /> 
+		-->
+
+	</bean>
+
+	<bean id="java_random" class="java.util.Random" />
+	<bean id="create_random_numbers" class="de.hhu.stups.springhello.pojos.RandomNumberGenerator">
+		<property name="random" ref="java_random" />
+	</bean>
+	<bean id="SequenceNumberGenerator" class="de.hhu.stups.springhello.pojos.SequenceNumberGenerator" />
+
+</beans>
